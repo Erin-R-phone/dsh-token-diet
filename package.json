@@ -1,0 +1,62 @@
+{
+  "name": "dsh-token-diet",
+  "displayName": "Token 饮食",
+  "description": "给 DeepSeek Harness 一个可开关的省 token 面板：AnySearch MCP 默认**真排除**（需要垂类搜索时一键打开）、切换「工具结果剪枝 / 超大结果溢出」的严格档，并实时显示当前档位。",
+  "version": "0.1.2",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "lib/index.js",
+    "lib/anchors.js",
+    "lib/client.js",
+    "tools/self-check.mjs",
+    "tools/publish-to-github.mjs",
+    "tools/fixtures/duplicate-const.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "token",
+    "cost",
+    "mcp",
+    "context"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    },
+    "compatibility": {
+      "dsh": ">=0.2.0-rc.1 <0.3.0",
+      "dshReleases": {
+        "0.2.0-rc.2": "compatible"
+      },
+      "profiles": [
+        "web"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "^0.1.5-rc.3 || ^0.1.7-rc.1 || ^0.2.0-rc.1",
+    "@deepseek-ai/dsh-host-webserver": "^0.1.5-rc.3 || ^0.1.7-rc.1 || ^0.2.0-rc.1"
+  },
+  "license": "MIT"
+}

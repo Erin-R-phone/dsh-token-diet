@@ -1,0 +1,7 @@
+# 开发/环境产物（不进版本库）
+node_modules/
+*.log
+.npm-cache*/
+_tmp*
+lib/probe.js
+.status/

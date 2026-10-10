@@ -1,0 +1,8 @@
+# dsh-token-diet 的组合包补丁层：只插入一行，指向本包。
+#
+# 它不覆盖任何官方行，也不碰别的插件的行 —— 所有开关都写在 **profile 的用户补丁层**
+# （`$DSH_HOME/profiles/<profile>/cordis.patch.yml`）里，由本插件按锚点就地改写，
+# 每次改写前留 `.bak-token-diet-<时间戳>` 备份。
+- insert:
+    - id: token-diet
+      name: dsh-token-diet
